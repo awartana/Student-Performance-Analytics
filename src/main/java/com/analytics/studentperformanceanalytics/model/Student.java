@@ -68,4 +68,4 @@ public class Student {
     public void setTestScores(List<TestScore> testScores) {
         this.testScores = testScores;
     }
-}
+} 

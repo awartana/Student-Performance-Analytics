@@ -1,0 +1,79 @@
+# Quick cURL Commands for Student Performance Analytics API
+# Copy and paste these commands to test your API
+
+BASE_URL=http://localhost:8080
+
+# ===================
+# 1. CREATE STUDENTS
+# ===================
+curl -X POST $BASE_URL/api/students -H "Content-Type: application/json" -d '{"name": "John Doe", "email": "john.doe@example.com"}'
+
+curl -X POST $BASE_URL/api/students -H "Content-Type: application/json" -d '{"name": "Jane Smith", "email": "jane.smith@example.com"}'
+
+curl -X POST $BASE_URL/api/students -H "Content-Type: application/json" -d '{"name": "Mike Johnson", "email": "mike.johnson@example.com"}'
+
+# ===================
+# 2. GET STUDENTS
+# ===================
+curl -X GET $BASE_URL/api/students
+
+curl -X GET $BASE_URL/api/students/1
+
+# ===================
+# 3. RECORD ATTENDANCE
+# ===================
+curl -X POST $BASE_URL/api/attendance -H "Content-Type: application/json" -d '{"date": "2024-01-15", "present": true, "student": {"id": 1}}'
+
+curl -X POST $BASE_URL/api/attendance -H "Content-Type: application/json" -d '{"date": "2024-01-16", "present": false, "student": {"id": 1}}'
+
+curl -X POST $BASE_URL/api/attendance -H "Content-Type: application/json" -d '{"date": "2024-01-17", "present": true, "student": {"id": 1}}'
+
+# ===================
+# 4. GET ATTENDANCE
+# ===================
+curl -X GET $BASE_URL/api/attendance
+
+curl -X GET $BASE_URL/api/attendance/student/1
+
+curl -X GET $BASE_URL/api/attendance/student/1/rate
+
+# ===================
+# 5. ADD TEST SCORES
+# ===================
+curl -X POST $BASE_URL/api/test-scores -H "Content-Type: application/json" -d '{"subject": "Mathematics", "score": 85.5, "student": {"id": 1}}'
+
+curl -X POST $BASE_URL/api/test-scores -H "Content-Type: application/json" -d '{"subject": "Science", "score": 92.0, "student": {"id": 1}}'
+
+curl -X POST $BASE_URL/api/test-scores -H "Content-Type: application/json" -d '{"subject": "English", "score": 78.5, "student": {"id": 1}}'
+
+# ===================
+# 6. GET TEST SCORES
+# ===================
+curl -X GET $BASE_URL/api/test-scores
+
+curl -X GET $BASE_URL/api/test-scores/student/1
+
+curl -X GET $BASE_URL/api/test-scores/student/1/average
+
+curl -X GET $BASE_URL/api/test-scores/student/1/average/Mathematics
+
+# ===================
+# 7. ANALYTICS
+# ===================
+curl -X GET $BASE_URL/api/analytics/student/1
+
+curl -X GET $BASE_URL/api/analytics/class
+
+# ===================
+# 8. UPDATE OPERATIONS
+# ===================
+curl -X PUT $BASE_URL/api/students/1 -H "Content-Type: application/json" -d '{"name": "John Updated", "email": "john.updated@example.com"}'
+
+curl -X PUT $BASE_URL/api/test-scores/1 -H "Content-Type: application/json" -d '{"subject": "Mathematics", "score": 90.0}'
+
+# ===================
+# 9. DELETE OPERATIONS
+# ===================
+curl -X DELETE $BASE_URL/api/students/3
+
+curl -X DELETE $BASE_URL/api/test-scores/3 

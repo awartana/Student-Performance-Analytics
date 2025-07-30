@@ -60,4 +60,4 @@ public class Attendance {
     public void setStudent(Student student) {
         this.student = student;
     }
-}
+} 

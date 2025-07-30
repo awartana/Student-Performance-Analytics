@@ -1,0 +1,316 @@
+{
+  "info": {
+    "name": "Student Performance Analytics API",
+    "description": "Complete API collection for testing Student Performance Analytics application",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Students",
+      "item": [
+        {
+          "name": "Create Student",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john.doe@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/students",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students"]
+            }
+          }
+        },
+        {
+          "name": "Get All Students",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/students",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students"]
+            }
+          }
+        },
+        {
+          "name": "Get Student by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/students/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Student",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"John Updated Doe\",\n    \"email\": \"john.updated@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/students/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Student",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/students/3",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students", "3"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Attendance",
+      "item": [
+        {
+          "name": "Record Attendance",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"date\": \"2024-01-15\",\n    \"present\": true,\n    \"student\": {\n        \"id\": 1\n    }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/attendance",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "attendance"]
+            }
+          }
+        },
+        {
+          "name": "Get All Attendance",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/attendance",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "attendance"]
+            }
+          }
+        },
+        {
+          "name": "Get Attendance by Student ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/attendance/student/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "attendance", "student", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Attendance Rate",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/attendance/student/1/rate",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "attendance", "student", "1", "rate"]
+            }
+          }
+        },
+        {
+          "name": "Update Attendance",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"date\": \"2024-01-15\",\n    \"present\": false\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/attendance/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "attendance", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Attendance",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/attendance/2",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "attendance", "2"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Test Scores",
+      "item": [
+        {
+          "name": "Add Test Score",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"subject\": \"Mathematics\",\n    \"score\": 85.5,\n    \"student\": {\n        \"id\": 1\n    }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/test-scores",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "test-scores"]
+            }
+          }
+        },
+        {
+          "name": "Get All Test Scores",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/test-scores",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "test-scores"]
+            }
+          }
+        },
+        {
+          "name": "Get Test Scores by Student ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/test-scores/student/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "test-scores", "student", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Average Score",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/test-scores/student/1/average",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "test-scores", "student", "1", "average"]
+            }
+          }
+        },
+        {
+          "name": "Get Average Score by Subject",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/test-scores/student/1/average/Mathematics",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "test-scores", "student", "1", "average", "Mathematics"]
+            }
+          }
+        },
+        {
+          "name": "Update Test Score",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"subject\": \"Mathematics\",\n    \"score\": 90.0\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/test-scores/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "test-scores", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Test Score",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/test-scores/3",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "test-scores", "3"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Analytics",
+      "item": [
+        {
+          "name": "Get Student Analytics",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/analytics/student/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "analytics", "student", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Class Analytics",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/analytics/class",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "analytics", "class"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+} 

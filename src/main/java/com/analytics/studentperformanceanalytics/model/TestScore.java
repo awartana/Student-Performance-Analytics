@@ -58,5 +58,4 @@ public class TestScore {
     public void setStudent(Student student) {
         this.student = student;
     }
-}
-
+} 
